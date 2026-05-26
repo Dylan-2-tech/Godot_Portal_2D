@@ -3,6 +3,11 @@ extends Node2D
 var held_object = false
 
 func _ready():
+	
+	# Connecter les 2 protails
+	$Orange_Portal.linked_portal = $Blue_Portal
+	$Blue_Portal.linked_portal = $Orange_Portal
+	
 	print($TileMap.get_cell_source_id(0, Vector2i(-5, -5)))
 	for node in get_tree().get_nodes_in_group("pickable"):
 		node.clicked.connect(_on_pickable_clicked)

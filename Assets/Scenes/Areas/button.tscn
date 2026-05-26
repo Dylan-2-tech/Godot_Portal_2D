@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7b4ekkdrmeo0"]
+
+[ext_resource type="Texture2D" uid="uid://dbe4ueqcdg7je" path="res://Assets/Sprites/Map/Tiles/button_released.png" id="1_1kimh"]
+[ext_resource type="Script" path="res://Assets/Scripts/button.gd" id="1_gjovi"]
+[ext_resource type="Texture2D" uid="uid://ca4cywbng834y" path="res://Assets/Sprites/Map/Tiles/button_pressed.png" id="3_sl02b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53sii"]
+size = Vector2(20, 4.25)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_gjovi")
+
+[node name="SpriteOff" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.16, 0.8)
+texture = ExtResource("1_1kimh")
+
+[node name="SpriteOn" type="Sprite2D" parent="."]
+position = Vector2(-2.98023e-08, -4)
+scale = Vector2(1.16, 0.8)
+texture = ExtResource("3_sl02b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.125)
+shape = SubResource("RectangleShape2D_53sii")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

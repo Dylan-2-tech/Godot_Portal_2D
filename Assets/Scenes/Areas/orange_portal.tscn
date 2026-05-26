@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://v0kgvtjt0rjv"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/orange_portal.gd" id="1_q7l6d"]
+[ext_resource type="Texture2D" uid="uid://vf07u4bigqk5" path="res://Assets/Sprites/Map/Tiles/orange_p.png" id="2_oi3cm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw3ub"]
+size = Vector2(9, 40)
+
+[node name="Orange_Portal" type="Area2D"]
+script = ExtResource("1_q7l6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_dw3ub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_oi3cm")

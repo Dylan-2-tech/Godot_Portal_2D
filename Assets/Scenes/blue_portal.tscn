@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://diitpiy4h1v01"]
+
+[ext_resource type="Texture2D" uid="uid://bcbmidfhyk545" path="res://Assets/Sprites/Map/Tiles/blue_p.png" id="1_00hec"]
+[ext_resource type="Script" path="res://Assets/Scripts/blue_portal.gd" id="1_uvtri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uteug"]
+size = Vector2(9, 40)
+
+[node name="Blue_Portal" type="Area2D"]
+script = ExtResource("1_uvtri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_uteug")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_00hec")

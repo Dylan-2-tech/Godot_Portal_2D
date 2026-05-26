@@ -539,9 +539,10 @@ position = Vector2(-574, -331)
 
 [node name="Player" parent="." instance=ExtResource("2_o8yj0")]
 position = Vector2(-391, 234)
+jump_power = 10.0
 
 [node name="Cube" parent="." instance=ExtResource("4_tfc4c")]
-position = Vector2(-269, 25)
+position = Vector2(-265, 113)
 
 [node name="button2" parent="." instance=ExtResource("3_ylinh")]
 position = Vector2(-263, 256)
@@ -550,7 +551,7 @@ position = Vector2(-263, 256)
 position = Vector2(-424, -128)
 
 [node name="Orange_Portal" parent="." instance=ExtResource("8_sbmt3")]
-position = Vector2(-298, 236)
+position = Vector2(-306, 151)
 
 [node name="Blue_Portal" parent="." instance=ExtResource("7_fxyrc")]
 position = Vector2(-447, 236)

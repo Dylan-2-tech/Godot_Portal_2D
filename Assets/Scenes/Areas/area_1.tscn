@@ -412,8 +412,10 @@ position = Vector2(-424, -128)
 position = Vector2(-306, 151)
 script = ExtResource("8_0ufq0")
 exit_offset = 32.0
+min_exit_speed = 200.0
 
 [node name="Blue_Portal" parent="." unique_id=1306712156 instance=ExtResource("7_fxyrc")]
 position = Vector2(-447, 236)
 script = ExtResource("8_0ufq0")
 exit_offset = 32.0
+min_exit_speed = 200.0

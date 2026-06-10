@@ -32,10 +32,11 @@ func _process(delta):
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			_fire(blue_portal)
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			_fire(orange_portal)
+		if Input.is_action_pressed("shift"):
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				_fire(blue_portal)
+			elif event.button_index == MOUSE_BUTTON_RIGHT:
+				_fire(orange_portal)
 
 func _fire(portal: Portal):
 	if portal == null:

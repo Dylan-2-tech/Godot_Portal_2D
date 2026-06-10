@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b00wwrqrcdav4"]
+[gd_scene load_steps=6 format=3 uid="uid://b00wwrqrcdav4"]
 
 [ext_resource type="Texture2D" uid="uid://w1nj6616vo7l" path="res://Assets/Sprites/Map/background/1.png" id="1_dhjhn"]
 [ext_resource type="Texture2D" uid="uid://c4uoy6rxvegxc" path="res://Assets/Sprites/Map/background/2.png" id="2_t6fyt"]
 [ext_resource type="Texture2D" uid="uid://c631lwbp3tvs" path="res://Assets/Sprites/Map/background/3.png" id="3_l3doh"]
 [ext_resource type="Texture2D" uid="uid://t0vkkyu5g8q4" path="res://Assets/Sprites/Map/background/4.png" id="4_5epgn"]
 [ext_resource type="Texture2D" uid="uid://cebwem01ruvj2" path="res://Assets/Sprites/Map/background/5.png" id="5_bk2xo"]
-[ext_resource type="Script" path="res://Assets/Scenes/Areas/Camera2D.gd" id="6_7j2pm"]
 
 [node name="Background" type="Node2D"]
 position = Vector2(-570, -334)
@@ -100,9 +99,3 @@ motion_mirroring = Vector2(720, 0)
 position = Vector2(517, 107)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("5_bk2xo")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(333, 220)
-enabled = false
-zoom = Vector2(2, 2)
-script = ExtResource("6_7j2pm")

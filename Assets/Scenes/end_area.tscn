@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b86aiomc8urwt"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/end_area.gd" id="1_7dl2a"]
+[ext_resource type="Texture2D" uid="uid://bbqurybjffuj7" path="res://Assets/Sprites/Map/Tiles/end_button_released.png" id="2_8an4p"]
+[ext_resource type="Texture2D" uid="uid://2ldaoxj2uohu" path="res://Assets/Sprites/Map/Tiles/end_button_pressed.png" id="3_x7qaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hkba"]
+size = Vector2(24, 5)
+
+[node name="end_area" type="Area2D"]
+position = Vector2(0, -3)
+script = ExtResource("1_7dl2a")
+
+[node name="SpriteOn" type="Sprite2D" parent="."]
+texture = ExtResource("3_x7qaj")
+
+[node name="SpriteOff" type="Sprite2D" parent="."]
+texture = ExtResource("2_8an4p")
+
+[node name="collision_end" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_5hkba")
+
+[connection signal="body_entered" from="." to="." method="_on_end_area_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,8 +1,8 @@
 extends Area2D
 class_name Portal
 
-@export var exit_offset := 32.0       # distance de sortie devant le portail
-@export var min_exit_speed := 200.0   # éjection minimale hors du portail de sortie
+@export var exit_offset := 32.0
+@export var min_exit_speed := 200.0
 
 var linked_portal: Portal
 var _cooldown := 0.0
@@ -15,26 +15,24 @@ func _process(delta):
 		_cooldown -= delta
 
 func _on_body_entered(body):
-	if _cooldown > 0.0 or linked_portal == null:
-		return
-	if body is PlayerController:
+	if body is PlayerController and _cooldown <= 0.0:
 		_teleport(body)
 
 func _teleport(body: PlayerController):
 	_cooldown = 0.3
 	linked_portal._cooldown = 0.3
 
-	# Réoriente la vélocité selon l'angle relatif des portails (direction + magnitude)
+	# Réoriente la vélocité selon l'angle relatif des portails
 	var rel_angle := linked_portal.global_rotation - global_rotation + PI
 	body.velocity = body.velocity.rotated(rel_angle)
 
 	# Direction "vers l'extérieur" du portail de sortie
 	var exit_normal := Vector2.RIGHT.rotated(linked_portal.global_rotation)
 
-	# Garantit une éjection minimale vers l'extérieur.
-	# Sans ça, une entrée lente (saut, apex) ressort sans élan → chute droite.
+	# Garantit une éjection minimale
 	var along := body.velocity.dot(exit_normal)
 	if along < min_exit_speed:
 		body.velocity += exit_normal * (min_exit_speed - along)
 
 	body.global_position = linked_portal.global_position + exit_normal * exit_offset
+	body.portal_launched = true

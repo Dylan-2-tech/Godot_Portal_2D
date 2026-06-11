@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b86aiomc8urwt"]
+[gd_scene format=3 uid="uid://b86aiomc8urwt"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/end_area.gd" id="1_7dl2a"]
 [ext_resource type="Texture2D" uid="uid://bbqurybjffuj7" path="res://Assets/Sprites/Map/Tiles/end_button_released.png" id="2_8an4p"]

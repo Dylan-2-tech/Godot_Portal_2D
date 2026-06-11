@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://umoorii1s2jt"]
+[gd_scene load_steps=11 format=3 uid="uid://mu3w385fi4r8"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/cyborg.gd" id="1_nadm1"]
-[ext_resource type="Texture2D" uid="uid://tyg5v1pirqyn" path="res://Assets/Sprites/Characters/Cyborg.png" id="1_qlswd"]
-[ext_resource type="Script" path="res://Assets/Scripts/player_animator.gd" id="2_kyf4t"]
+[ext_resource type="Script" path="res://Assets/Scripts/punk.gd" id="1_dftfo"]
+[ext_resource type="Script" path="res://Assets/Scripts/player_animator.gd" id="2_xjs58"]
+[ext_resource type="Texture2D" uid="uid://d3ypefnxmyxdw" path="res://Assets/Sprites/Characters/Punk.png" id="3_bky3w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qub36"]
 radius = 7.0
@@ -102,7 +102,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-script = ExtResource("1_nadm1")
+script = ExtResource("1_dftfo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qub36")
@@ -112,7 +112,7 @@ offset = Vector2(0, -80)
 zoom = Vector2(2, 2)
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "sprite", "animation_player")]
-script = ExtResource("2_kyf4t")
+script = ExtResource("2_xjs58")
 player_controller = NodePath("..")
 sprite = NodePath("Sprite2D")
 animation_player = NodePath("AnimationPlayer")
@@ -126,6 +126,6 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
 position = Vector2(9, -7)
-texture = ExtResource("1_qlswd")
+texture = ExtResource("3_bky3w")
 region_enabled = true
 region_rect = Rect2(0, 336, 48, 48)

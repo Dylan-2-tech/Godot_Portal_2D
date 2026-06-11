@@ -15,10 +15,10 @@ func _process(delta):
 		_cooldown -= delta
 
 func _on_body_entered(body):
-	if body is PlayerController and _cooldown <= 0.0:
+	if body.is_in_group("Player") and _cooldown <= 0.0:
 		_teleport(body)
 
-func _teleport(body: PlayerController):
+func _teleport(body: CharacterBody2D):
 	_cooldown = 0.3
 	linked_portal._cooldown = 0.3
 

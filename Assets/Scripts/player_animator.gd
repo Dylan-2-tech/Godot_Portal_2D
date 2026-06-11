@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var player_controller: PlayerController
+@export var player_controller: CharacterBody2D
 @export var sprite: Sprite2D
 @export var animation_player: AnimationPlayer
 

@@ -13,13 +13,13 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		portal_launched = false  # landed, clear the flagdd
+		portal_launched = false  # landed, clear the flag
 
 	# Saut
 	if Input.is_action_just_pressed("p2_up") and is_on_floor():
 		velocity.y = jump_power * jump_multiplier
 
-	direction = Input.get_axis("p2_left", "p2_right")
+	direction = Input.get_axis("p2_gauche", "p2_droite")
 	if direction:
 		portal_launched = false  # player took manual control, cancel portal momentum
 		velocity.x = direction * speed * speed_multiplier

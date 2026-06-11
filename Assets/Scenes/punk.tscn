@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://mu3w385fi4r8"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/punk.gd" id="1_dftfo"]
-[ext_resource type="Script" path="res://Assets/Scripts/player_animator.gd" id="2_xjs58"]
-[ext_resource type="Texture2D" uid="uid://d3ypefnxmyxdw" path="res://Assets/Sprites/Characters/Punk.png" id="3_bky3w"]
+[ext_resource type="Script" uid="uid://dde3by7aww3hf" path="res://Assets/Scripts/punk.gd" id="1_dftfo"]
+[ext_resource type="Script" uid="uid://dvgairrahbss2" path="res://Assets/Scripts/player_animator.gd" id="2_xjs58"]
+[ext_resource type="Texture2D" uid="uid://bbgm5d25nloub" path="res://Assets/Sprites/Characters/Punk.png" id="3_bky3w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qub36"]
 radius = 7.0
@@ -94,37 +94,36 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vanul"]
 _data = {
-"RESET": SubResource("Animation_65tq5"),
-"fall": SubResource("Animation_p3ogk"),
-"idle": SubResource("Animation_cc21q"),
-"jump": SubResource("Animation_20pyh"),
-"move": SubResource("Animation_a5k7r")
+&"RESET": SubResource("Animation_65tq5"),
+&"fall": SubResource("Animation_p3ogk"),
+&"idle": SubResource("Animation_cc21q"),
+&"jump": SubResource("Animation_20pyh"),
+&"move": SubResource("Animation_a5k7r")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2097916853 groups=["Player"]]
 script = ExtResource("1_dftfo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1321471095]
 shape = SubResource("CapsuleShape2D_qub36")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1508681100]
 offset = Vector2(0, -80)
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 
-[node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "sprite", "animation_player")]
+[node name="PlayerAnimator" type="Node2D" parent="." unique_id=666531997 node_paths=PackedStringArray("player_controller", "sprite", "animation_player")]
 script = ExtResource("2_xjs58")
 player_controller = NodePath("..")
 sprite = NodePath("Sprite2D")
 animation_player = NodePath("AnimationPlayer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator"]
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator" unique_id=44337569]
+libraries/ = SubResource("AnimationLibrary_vanul")
+autoplay = &"idle"
 speed_scale = 1.75
-libraries = {
-"": SubResource("AnimationLibrary_vanul")
-}
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
+[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator" unique_id=790031576]
 position = Vector2(9, -7)
 texture = ExtResource("3_bky3w")
 region_enabled = true

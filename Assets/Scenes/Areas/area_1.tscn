@@ -5,11 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cpxkshco42fvl" path="res://Assets/Scenes/tile_map.tscn" id="3_m1phx"]
 [ext_resource type="PackedScene" uid="uid://b7b4ekkdrmeo0" path="res://Assets/Scenes/Areas/button.tscn" id="3_ylinh"]
 [ext_resource type="PackedScene" uid="uid://b7wf814cvackh" path="res://Assets/Scenes/Areas/cube.tscn" id="4_tfc4c"]
-[ext_resource type="Script" uid="uid://kmw61ylwqf2u" path="res://Assets/Scenes/Areas/portal_gun.gd" id="5_7lgy5"]
 [ext_resource type="PackedScene" uid="uid://b00wwrqrcdav4" path="res://Assets/Scenes/Areas/background.tscn" id="6_bnwt7"]
-[ext_resource type="Texture2D" uid="uid://dr3op6p4qnac5" path="res://Assets/Sprites/Map/Tiles/gun.png" id="6_pnluw"]
 [ext_resource type="PackedScene" uid="uid://diitpiy4h1v01" path="res://Assets/Scenes/blue_portal.tscn" id="7_fxyrc"]
-[ext_resource type="PackedScene" uid="uid://c7bpfhexbt64b" path="res://Assets/Scenes/Areas/level_1.tscn" id="7_pnluw"]
 [ext_resource type="Script" uid="uid://co1y2clxdvhbt" path="res://Assets/Scenes/Areas/portal.gd" id="8_0ufq0"]
 [ext_resource type="PackedScene" uid="uid://v0kgvtjt0rjv" path="res://Assets/Scenes/Areas/orange_portal.tscn" id="8_sbmt3"]
 
@@ -21,27 +18,8 @@ position = Vector2(-604, -321)
 
 [node name="TileMap" parent="." unique_id=289120693 instance=ExtResource("3_m1phx")]
 
-[node name="Player" parent="." unique_id=103268670 instance=ExtResource("2_o8yj0")]
+[node name="Cyborg" parent="." unique_id=103268670 instance=ExtResource("2_o8yj0")]
 position = Vector2(-391, 234)
-
-[node name="PortalGun" type="Node2D" parent="Player" unique_id=1072875594 node_paths=PackedStringArray("blue_portal", "orange_portal")]
-position = Vector2(-4, 1)
-script = ExtResource("5_7lgy5")
-blue_portal = NodePath("../../Blue_Portal")
-orange_portal = NodePath("../../Orange_Portal")
-
-[node name="Pivot" type="Node2D" parent="Player/PortalGun" unique_id=1369884319]
-position = Vector2(-6, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/PortalGun/Pivot" unique_id=1445079712]
-position = Vector2(2.37499, 1.81249)
-scale = Vector2(0.00583333, 0.00850258)
-texture = ExtResource("6_pnluw")
-
-[node name="Muzzle" type="Marker2D" parent="Player/PortalGun/Pivot" unique_id=24770900]
-position = Vector2(4, 0)
-
-[node name="Level_1" parent="Player/PortalGun" unique_id=836100474 instance=ExtResource("7_pnluw")]
 
 [node name="Cube" parent="." unique_id=94648764 instance=ExtResource("4_tfc4c")]
 position = Vector2(-265, 113)
@@ -52,13 +30,13 @@ position = Vector2(-263, 256)
 [node name="button" parent="." unique_id=1516567056 instance=ExtResource("3_ylinh")]
 position = Vector2(-424, -128)
 
-[node name="Orange_Portal" parent="." unique_id=716134133 instance=ExtResource("8_sbmt3")]
+[node name="Orange_Portal" parent="." unique_id=716134133 groups=["orange_portal"] instance=ExtResource("8_sbmt3")]
 position = Vector2(-306, 151)
 script = ExtResource("8_0ufq0")
 exit_offset = 32.0
 min_exit_speed = 200.0
 
-[node name="Blue_Portal" parent="." unique_id=920095559 instance=ExtResource("7_fxyrc")]
+[node name="Blue_Portal" parent="." unique_id=920095559 groups=["blue_portal"] instance=ExtResource("7_fxyrc")]
 position = Vector2(-447, 236)
 script = ExtResource("8_0ufq0")
 exit_offset = 32.0

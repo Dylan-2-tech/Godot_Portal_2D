@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://umoorii1s2jt"]
+[gd_scene format=3 uid="uid://umoorii1s2jt"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/cyborg.gd" id="1_nadm1"]
+[ext_resource type="Script" uid="uid://centxnrltmyql" path="res://Assets/Scripts/cyborg.gd" id="1_nadm1"]
 [ext_resource type="Texture2D" uid="uid://tyg5v1pirqyn" path="res://Assets/Sprites/Characters/Cyborg.png" id="1_qlswd"]
-[ext_resource type="Script" path="res://Assets/Scripts/player_animator.gd" id="2_kyf4t"]
+[ext_resource type="Script" uid="uid://dvgairrahbss2" path="res://Assets/Scripts/player_animator.gd" id="2_kyf4t"]
+[ext_resource type="Script" uid="uid://kmw61ylwqf2u" path="res://Assets/Scenes/Areas/portal_gun.gd" id="4_y1eie"]
+[ext_resource type="Texture2D" uid="uid://dr3op6p4qnac5" path="res://Assets/Sprites/Map/Tiles/gun.png" id="5_6h81j"]
+[ext_resource type="PackedScene" uid="uid://c7bpfhexbt64b" path="res://Assets/Scenes/Areas/level_1.tscn" id="6_wlfpl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qub36"]
 radius = 7.0
@@ -94,38 +97,56 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vanul"]
 _data = {
-"RESET": SubResource("Animation_65tq5"),
-"fall": SubResource("Animation_p3ogk"),
-"idle": SubResource("Animation_cc21q"),
-"jump": SubResource("Animation_20pyh"),
-"move": SubResource("Animation_a5k7r")
+&"RESET": SubResource("Animation_65tq5"),
+&"fall": SubResource("Animation_p3ogk"),
+&"idle": SubResource("Animation_cc21q"),
+&"jump": SubResource("Animation_20pyh"),
+&"move": SubResource("Animation_a5k7r")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1241400020 groups=["Player"]]
 script = ExtResource("1_nadm1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1669044609]
 shape = SubResource("CapsuleShape2D_qub36")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1441671812]
 offset = Vector2(0, -80)
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 
-[node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "sprite", "animation_player")]
+[node name="PlayerAnimator" type="Node2D" parent="." unique_id=858426671 node_paths=PackedStringArray("player_controller", "sprite", "animation_player")]
 script = ExtResource("2_kyf4t")
 player_controller = NodePath("..")
 sprite = NodePath("Sprite2D")
 animation_player = NodePath("AnimationPlayer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator"]
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator" unique_id=362447488]
+libraries/ = SubResource("AnimationLibrary_vanul")
+autoplay = &"idle"
 speed_scale = 1.75
-libraries = {
-"": SubResource("AnimationLibrary_vanul")
-}
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
+[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator" unique_id=256031202]
 position = Vector2(9, -7)
 texture = ExtResource("1_qlswd")
 region_enabled = true
 region_rect = Rect2(0, 336, 48, 48)
+
+[node name="PortalGun" type="Node2D" parent="." unique_id=708282983 node_paths=PackedStringArray("blue_portal", "orange_portal")]
+position = Vector2(-4, 1)
+script = ExtResource("4_y1eie")
+blue_portal = NodePath("")
+orange_portal = NodePath("")
+
+[node name="Pivot" type="Node2D" parent="PortalGun" unique_id=847626030]
+position = Vector2(-6, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="PortalGun/Pivot" unique_id=647605370]
+position = Vector2(2.37499, 1.81249)
+scale = Vector2(0.00583333, 0.00850258)
+texture = ExtResource("5_6h81j")
+
+[node name="Muzzle" type="Marker2D" parent="PortalGun/Pivot" unique_id=650529637]
+position = Vector2(4, 0)
+
+[node name="Level_1" parent="PortalGun" unique_id=535599676 instance=ExtResource("6_wlfpl")]

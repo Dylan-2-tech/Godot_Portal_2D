@@ -22,7 +22,6 @@ position = Vector2(-604, -321)
 
 [node name="Player" parent="." instance=ExtResource("2_o8yj0")]
 position = Vector2(-391, 234)
-jump_power = 10.0
 
 [node name="PortalGun" type="Node2D" parent="Player" node_paths=PackedStringArray("blue_portal", "orange_portal")]
 position = Vector2(-4, 1)

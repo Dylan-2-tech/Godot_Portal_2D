@@ -4,7 +4,7 @@ var linked_portal: Area2D
 var is_teleporting = false
 
 func _on_body_entered(body):
-	if body is PlayerController and !is_teleporting:
+	if body.is_in_group("Player") and !is_teleporting:
 		linked_portal.is_teleporting = true
 		
 		# Convert velocity from entry portal local space to exit portal local space
@@ -18,7 +18,7 @@ func _on_body_entered(body):
 		body.velocity = rotated_velocity
 
 func _on_body_exited(body):
-	if body is PlayerController:
+	if body.is_in_group("Player"):
 		is_teleporting = false
 
 func _ready():

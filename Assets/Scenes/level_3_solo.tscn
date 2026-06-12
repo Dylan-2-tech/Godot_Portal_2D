@@ -29,9 +29,10 @@ position = Vector2(-5, 4)
 blue_portal = NodePath("../../Blue_Portal")
 orange_portal = NodePath("../../Orange_Portal")
 
-[node name="end_area" parent="." instance=ExtResource("9_ha440")]
+[node name="end_area" parent="." node_paths=PackedStringArray("other_button") instance=ExtResource("9_ha440")]
 position = Vector2(111, 251)
 script = ExtResource("7_bv4rm")
+other_button = NodePath("../Area2D")
 
 [node name="Orange_Portal" parent="." groups=["orange_portal"] instance=ExtResource("4_ubvxw")]
 position = Vector2(-477, 53)

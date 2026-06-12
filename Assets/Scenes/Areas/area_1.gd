@@ -1,6 +1,7 @@
 extends Node2D
 
 var held_object = false
+var button1_active := false
 
 func _ready():
 	

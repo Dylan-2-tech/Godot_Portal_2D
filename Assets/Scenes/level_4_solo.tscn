@@ -27,18 +27,19 @@ position = Vector2(-399, 238)
 [node name="PortalGun" parent="Player2" instance=ExtResource("5_dfiuv")]
 position = Vector2(-5, 4)
 
-[node name="end_area" parent="." instance=ExtResource("6_r8pe0")]
+[node name="end_area" parent="." node_paths=PackedStringArray("other_button") instance=ExtResource("6_r8pe0")]
 position = Vector2(-127, 251)
 script = ExtResource("7_km7uy")
+other_button = NodePath("../Area2D")
 
 [node name="Orange_Portal" parent="." groups=["orange_portal"] instance=ExtResource("7_5pjls")]
-position = Vector2(-477, 53)
+position = Vector2(-472, -23)
 script = ExtResource("8_ap746")
 exit_offset = 32.0
 min_exit_speed = 200.0
 
 [node name="Blue_Portal" parent="." groups=["blue_portal"] instance=ExtResource("9_h10v8")]
-position = Vector2(-439, 53)
+position = Vector2(-444, -36)
 script = ExtResource("8_ap746")
 exit_offset = 32.0
 min_exit_speed = 200.0

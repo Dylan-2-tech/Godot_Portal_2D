@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Portal_2D"
-run/main_scene="res://Assets/Scenes/Areas/area_1.tscn"
+run/main_scene="res://Assets/Scenes/level_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 

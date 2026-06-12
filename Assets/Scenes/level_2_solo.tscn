@@ -43,13 +43,13 @@ text = "Shift + clique gauche pour tirer un portail bleu
 Shift + clique droit pour tirer un portail orange"
 
 [node name="Orange_Portal" parent="." groups=["orange_portal"] instance=ExtResource("6_lr6uh")]
-position = Vector2(-917, 170)
+position = Vector2(-461, -11)
 script = ExtResource("6_aj70c")
 exit_offset = 32.0
 min_exit_speed = 200.0
 
 [node name="Blue_Portal" parent="." groups=["blue_portal"] instance=ExtResource("5_qufjh")]
-position = Vector2(-913, 225)
+position = Vector2(-425, 0)
 script = ExtResource("6_aj70c")
 exit_offset = 32.0
 min_exit_speed = 200.0

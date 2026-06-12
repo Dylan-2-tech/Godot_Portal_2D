@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://mu3w385fi4r8"]
+[gd_scene load_steps=11 format=3 uid="uid://mu3w385fi4r8"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/punk.gd" id="1_dftfo"]
 [ext_resource type="Script" path="res://Assets/Scripts/player_animator.gd" id="2_xjs58"]

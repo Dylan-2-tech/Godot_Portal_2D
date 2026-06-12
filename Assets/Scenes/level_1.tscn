@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ds15k646vxuo7"]
+[gd_scene load_steps=6 format=3 uid="uid://ds15k646vxuo7"]
 
 [ext_resource type="PackedScene" uid="uid://cpxkshco42fvl" path="res://Assets/Scenes/tile_map.tscn" id="1_pp1se"]
 [ext_resource type="PackedScene" uid="uid://umoorii1s2jt" path="res://Assets/Scenes/cyborg.tscn" id="2_vjvyn"]

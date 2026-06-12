@@ -101,7 +101,7 @@ _data = {
 "move": SubResource("Animation_a5k7r")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player2" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_nadm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

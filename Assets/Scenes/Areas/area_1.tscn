@@ -1,42 +1,42 @@
-[gd_scene format=3 uid="uid://br4d2h0ephqnd"]
+[gd_scene load_steps=10 format=3 uid="uid://br4d2h0ephqnd"]
 
-[ext_resource type="Script" uid="uid://d4ilplmmrx6ia" path="res://Assets/Scenes/Areas/area_1.gd" id="1_xnaxs"]
+[ext_resource type="Script" path="res://Assets/Scenes/Areas/area_1.gd" id="1_xnaxs"]
 [ext_resource type="PackedScene" uid="uid://umoorii1s2jt" path="res://Assets/Scenes/cyborg.tscn" id="2_o8yj0"]
 [ext_resource type="PackedScene" uid="uid://cpxkshco42fvl" path="res://Assets/Scenes/tile_map.tscn" id="3_m1phx"]
 [ext_resource type="PackedScene" uid="uid://b7b4ekkdrmeo0" path="res://Assets/Scenes/Areas/button.tscn" id="3_ylinh"]
 [ext_resource type="PackedScene" uid="uid://b7wf814cvackh" path="res://Assets/Scenes/Areas/cube.tscn" id="4_tfc4c"]
 [ext_resource type="PackedScene" uid="uid://b00wwrqrcdav4" path="res://Assets/Scenes/Areas/background.tscn" id="6_bnwt7"]
 [ext_resource type="PackedScene" uid="uid://diitpiy4h1v01" path="res://Assets/Scenes/blue_portal.tscn" id="7_fxyrc"]
-[ext_resource type="Script" uid="uid://co1y2clxdvhbt" path="res://Assets/Scenes/Areas/portal.gd" id="8_0ufq0"]
+[ext_resource type="Script" path="res://Assets/Scenes/Areas/portal.gd" id="8_0ufq0"]
 [ext_resource type="PackedScene" uid="uid://v0kgvtjt0rjv" path="res://Assets/Scenes/Areas/orange_portal.tscn" id="8_sbmt3"]
 
-[node name="Area1" type="Node2D" unique_id=58095718]
+[node name="Area1" type="Node2D"]
 script = ExtResource("1_xnaxs")
 
-[node name="Background" parent="." unique_id=1718538750 instance=ExtResource("6_bnwt7")]
+[node name="Background" parent="." instance=ExtResource("6_bnwt7")]
 position = Vector2(-604, -321)
 
-[node name="TileMap" parent="." unique_id=289120693 instance=ExtResource("3_m1phx")]
+[node name="TileMap" parent="." instance=ExtResource("3_m1phx")]
 
-[node name="Cyborg" parent="." unique_id=103268670 instance=ExtResource("2_o8yj0")]
+[node name="Cyborg" parent="." instance=ExtResource("2_o8yj0")]
 position = Vector2(-391, 234)
 
-[node name="Cube" parent="." unique_id=94648764 instance=ExtResource("4_tfc4c")]
+[node name="Cube" parent="." instance=ExtResource("4_tfc4c")]
 position = Vector2(-265, 113)
 
-[node name="button2" parent="." unique_id=881132080 instance=ExtResource("3_ylinh")]
+[node name="button2" parent="." instance=ExtResource("3_ylinh")]
 position = Vector2(-263, 256)
 
-[node name="button" parent="." unique_id=1516567056 instance=ExtResource("3_ylinh")]
+[node name="button" parent="." instance=ExtResource("3_ylinh")]
 position = Vector2(-424, -128)
 
-[node name="Orange_Portal" parent="." unique_id=716134133 groups=["orange_portal"] instance=ExtResource("8_sbmt3")]
+[node name="Orange_Portal" parent="." groups=["orange_portal"] instance=ExtResource("8_sbmt3")]
 position = Vector2(-306, 151)
 script = ExtResource("8_0ufq0")
 exit_offset = 32.0
 min_exit_speed = 200.0
 
-[node name="Blue_Portal" parent="." unique_id=920095559 groups=["blue_portal"] instance=ExtResource("7_fxyrc")]
+[node name="Blue_Portal" parent="." groups=["blue_portal"] instance=ExtResource("7_fxyrc")]
 position = Vector2(-447, 236)
 script = ExtResource("8_0ufq0")
 exit_offset = 32.0

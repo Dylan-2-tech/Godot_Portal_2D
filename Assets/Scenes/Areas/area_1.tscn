@@ -1,15 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://br4d2h0ephqnd"]
+[gd_scene load_steps=12 format=3 uid="uid://br4d2h0ephqnd"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Areas/area_1.gd" id="1_xnaxs"]
 [ext_resource type="PackedScene" uid="uid://umoorii1s2jt" path="res://Assets/Scenes/cyborg.tscn" id="2_o8yj0"]
 [ext_resource type="PackedScene" uid="uid://cpxkshco42fvl" path="res://Assets/Scenes/tile_map.tscn" id="3_m1phx"]
 [ext_resource type="PackedScene" uid="uid://b7b4ekkdrmeo0" path="res://Assets/Scenes/Areas/button.tscn" id="3_ylinh"]
 [ext_resource type="PackedScene" uid="uid://b7wf814cvackh" path="res://Assets/Scenes/Areas/cube.tscn" id="4_tfc4c"]
-[ext_resource type="Script" path="res://Assets/Scenes/Areas/portal_gun.gd" id="5_7lgy5"]
+[ext_resource type="PackedScene" uid="uid://b7ny5hwtjorxi" path="res://Assets/Scenes/portal_gun.tscn" id="5_fpygw"]
 [ext_resource type="PackedScene" uid="uid://b00wwrqrcdav4" path="res://Assets/Scenes/Areas/background.tscn" id="6_bnwt7"]
-[ext_resource type="Texture2D" uid="uid://dvl48lrxr2tan" path="res://Assets/Sprites/Map/Tiles/gun.png" id="6_pnluw"]
 [ext_resource type="PackedScene" uid="uid://diitpiy4h1v01" path="res://Assets/Scenes/blue_portal.tscn" id="7_fxyrc"]
-[ext_resource type="PackedScene" uid="uid://c7bpfhexbt64b" path="res://Assets/Scenes/Areas/level_1.tscn" id="7_pnluw"]
 [ext_resource type="Script" path="res://Assets/Scenes/Areas/portal.gd" id="8_0ufq0"]
 [ext_resource type="PackedScene" uid="uid://v0kgvtjt0rjv" path="res://Assets/Scenes/Areas/orange_portal.tscn" id="8_sbmt3"]
 [ext_resource type="PackedScene" uid="uid://mu3w385fi4r8" path="res://Assets/Scenes/punk.tscn" id="13_fq5l3"]
@@ -25,24 +23,9 @@ position = Vector2(-604, -321)
 [node name="Player" parent="." instance=ExtResource("2_o8yj0")]
 position = Vector2(-391, 234)
 
-[node name="PortalGun" type="Node2D" parent="Player" node_paths=PackedStringArray("blue_portal", "orange_portal")]
-position = Vector2(-4, 1)
-script = ExtResource("5_7lgy5")
+[node name="PortalGun" parent="Player" node_paths=PackedStringArray("blue_portal", "orange_portal") instance=ExtResource("5_fpygw")]
 blue_portal = NodePath("../../Blue_Portal")
 orange_portal = NodePath("../../Orange_Portal")
-
-[node name="Pivot" type="Node2D" parent="Player/PortalGun"]
-position = Vector2(-6, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/PortalGun/Pivot"]
-position = Vector2(2.37499, 1.81249)
-scale = Vector2(0.00583333, 0.00850258)
-texture = ExtResource("6_pnluw")
-
-[node name="Muzzle" type="Marker2D" parent="Player/PortalGun/Pivot"]
-position = Vector2(4, 0)
-
-[node name="Level_1" parent="Player/PortalGun" instance=ExtResource("7_pnluw")]
 
 [node name="Cube" parent="." instance=ExtResource("4_tfc4c")]
 position = Vector2(-265, 113)

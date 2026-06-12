@@ -39,8 +39,10 @@ func _unhandled_input(event):
 				_fire(orange_portal)
 
 func _fire(portal: Portal):
+
 	if portal == null:
 		return
+	
 	var from := muzzle.global_position
 	var dir := Vector2.RIGHT.rotated(pivot.global_rotation)
 	var to := from + dir * max_range
@@ -48,10 +50,14 @@ func _fire(portal: Portal):
 	var space := get_world_2d().direct_space_state
 	var query := PhysicsRayQueryParameters2D.create(from, to)
 	query.collision_mask = wall_mask
+
 	if get_parent() is CollisionObject2D:
 		query.exclude = [get_parent().get_rid()]
 	var hit := space.intersect_ray(query)
 
+	print("hit: ", hit)
+	print("wall_mask: ", wall_mask)
+	
 	if hit:
 		portal.global_position = hit.position
 		portal.global_rotation = hit.normal.angle()
@@ -64,6 +70,7 @@ func _fire(portal: Portal):
 	# Affiche le pistolet + le laser pendant show_duration
 	sprite.visible = true
 	_show_timer = show_duration
+	print("qdfq")
 	queue_redraw()
 
 func _draw():

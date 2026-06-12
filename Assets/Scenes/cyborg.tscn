@@ -102,14 +102,17 @@ _data = {
 }
 
 [node name="Player2" type="CharacterBody2D" groups=["Player"]]
+texture_filter = 1
 script = ExtResource("1_nadm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qub36")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -80)
+offset = Vector2(0, -40)
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "sprite", "animation_player")]
 script = ExtResource("2_kyf4t")

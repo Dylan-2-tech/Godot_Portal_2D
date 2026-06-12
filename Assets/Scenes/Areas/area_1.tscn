@@ -1,20 +1,21 @@
 [gd_scene load_steps=10 format=3 uid="uid://br4d2h0ephqnd"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Areas/area_1.gd" id="1_xnaxs"]
+[ext_resource type="PackedScene" uid="uid://dbuangc3l4mds" path="res://Assets/Scenes/background.tscn" id="2_n6c5b"]
 [ext_resource type="PackedScene" uid="uid://umoorii1s2jt" path="res://Assets/Scenes/cyborg.tscn" id="2_o8yj0"]
 [ext_resource type="PackedScene" uid="uid://cpxkshco42fvl" path="res://Assets/Scenes/tile_map.tscn" id="3_m1phx"]
 [ext_resource type="PackedScene" uid="uid://b7b4ekkdrmeo0" path="res://Assets/Scenes/Areas/button.tscn" id="3_ylinh"]
 [ext_resource type="PackedScene" uid="uid://b7wf814cvackh" path="res://Assets/Scenes/Areas/cube.tscn" id="4_tfc4c"]
-[ext_resource type="PackedScene" uid="uid://b00wwrqrcdav4" path="res://Assets/Scenes/Areas/background.tscn" id="6_bnwt7"]
 [ext_resource type="PackedScene" uid="uid://diitpiy4h1v01" path="res://Assets/Scenes/blue_portal.tscn" id="7_fxyrc"]
 [ext_resource type="Script" path="res://Assets/Scenes/Areas/portal.gd" id="8_0ufq0"]
 [ext_resource type="PackedScene" uid="uid://v0kgvtjt0rjv" path="res://Assets/Scenes/Areas/orange_portal.tscn" id="8_sbmt3"]
 
 [node name="Area1" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_xnaxs")
 
-[node name="Background" parent="." instance=ExtResource("6_bnwt7")]
-position = Vector2(-604, -321)
+[node name="Background" parent="." instance=ExtResource("2_n6c5b")]
+position = Vector2(0, 2)
 
 [node name="TileMap" parent="." instance=ExtResource("3_m1phx")]
 
@@ -37,7 +38,7 @@ exit_offset = 32.0
 min_exit_speed = 200.0
 
 [node name="Blue_Portal" parent="." groups=["blue_portal"] instance=ExtResource("7_fxyrc")]
-position = Vector2(-447, 236)
+position = Vector2(-476, 188)
 script = ExtResource("8_0ufq0")
 exit_offset = 32.0
 min_exit_speed = 200.0

@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 const PUNK_SCENE := preload("res://Assets/Scenes/punk.tscn")
 

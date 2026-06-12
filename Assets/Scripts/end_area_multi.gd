@@ -1,16 +1,19 @@
 extends Area2D
 
+@export var other_button: Area2D  # assign the cube button in the Inspector
+
 var timer: SceneTreeTimer = null
 
 func _ready():
 	$SpriteOn.visible = false
 
-func _on_end_area_body_entered(body):
+func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		$SpriteOff.visible = false
 		$SpriteOn.visible = true
-		timer = get_tree().create_timer(2.0)
-		timer.timeout.connect(_on_timer_finished)
+		if other_button and other_button._is_active:
+			timer = get_tree().create_timer(2.0)
+			timer.timeout.connect(_on_timer_finished)
 
 func _on_body_exited(body):
 	if body.is_in_group("Player"):
@@ -21,4 +24,4 @@ func _on_body_exited(body):
 func _on_timer_finished():
 	if timer != null:
 		timer = null
-		get_tree().root.get_node("Control").load_new_level("res://Assets/Scenes/level_2_solo.tscn")
+		get_tree().root.get_node("Control").load_new_level("res://Assets/Scenes/level_2_multi.tscn")

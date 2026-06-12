@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3mxerx81egua"]
 
-[ext_resource type="PackedScene" uid="uid://br4d2h0ephqnd" path="res://Assets/Scenes/Areas/area_1.tscn" id="1_qbwoj"]
 [ext_resource type="Script" path="res://Assets/Scripts/SplitScreen_control.gd" id="1_vgk7v"]
+[ext_resource type="PackedScene" uid="uid://c7bpfhexbt64b" path="res://Assets/Scenes/Areas/level_1.tscn" id="2_bft4e"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -29,11 +29,10 @@ stretch = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 physics_object_picking = true
-size = Vector2i(2, 2)
+size = Vector2i(286, 324)
 render_target_update_mode = 4
 
-[node name="Area1" parent="HBox/Container1/View1" instance=ExtResource("1_qbwoj")]
-position = Vector2(495, 82)
+[node name="Level_1" parent="HBox/Container1/View1" instance=ExtResource("2_bft4e")]
 
 [node name="Container2" type="SubViewportContainer" parent="HBox"]
 layout_mode = 2
@@ -44,5 +43,5 @@ stretch = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 physics_object_picking = true
-size = Vector2i(2, 2)
+size = Vector2i(286, 324)
 render_target_update_mode = 4

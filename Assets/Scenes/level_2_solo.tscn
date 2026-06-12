@@ -41,6 +41,7 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 126
 text = "Shift + clique gauche pour tirer un portail bleu
 Shift + clique droit pour tirer un portail orange"
+metadata/_edit_use_anchors_ = true
 
 [node name="Orange_Portal" parent="." groups=["orange_portal"] instance=ExtResource("6_lr6uh")]
 position = Vector2(-461, -11)

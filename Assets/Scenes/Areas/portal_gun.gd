@@ -28,7 +28,6 @@ func _connect_portals() -> void:
 			orange_portal = get_tree().get_first_node_in_group("orange_portal")
 		if blue_portal == null or orange_portal == null:
 			await get_tree().process_frame
-	print("Portails branchés : blue=", blue_portal, " orange=", orange_portal)
 
 # Mémorise l'état précédent des boutons pour détecter le "juste pressé"
 var _was_left_pressed := false
@@ -42,8 +41,7 @@ func _physics_process(_delta):
 	# Lecture directe de la souris : insensible au routage des SubViewports
 	var left := Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 	var right := Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
-	if left and not _was_left_pressed:
-		print("CLIC GAUCHE détecté | shift=", Input.is_action_pressed("shift"))
+
 	if Input.is_action_pressed("shift"):
 		if left and not _was_left_pressed:
 			_fire(blue_portal)
@@ -63,7 +61,6 @@ func _process(delta):
 
 
 func _fire(portal: Portal):
-	print("FIRE | portal=", portal, " | souris monde=", get_global_mouse_position(), " | muzzle=", muzzle.global_position)
 	if portal == null:
 		return
 	var from := muzzle.global_position
@@ -76,7 +73,6 @@ func _fire(portal: Portal):
 	if get_parent() is CollisionObject2D:
 		query.exclude = [get_parent().get_rid()]
 	var hit := space.intersect_ray(query)
-	print("HIT = ", hit)
 
 	if hit:
 		portal.global_position = hit.position

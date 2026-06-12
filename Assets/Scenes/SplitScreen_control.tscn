@@ -29,7 +29,7 @@ stretch = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 physics_object_picking = true
-size = Vector2i(286, 324)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Area1" parent="HBox/Container1/View1" instance=ExtResource("1_qbwoj")]
@@ -44,5 +44,5 @@ stretch = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 physics_object_picking = true
-size = Vector2i(286, 324)
+size = Vector2i(2, 2)
 render_target_update_mode = 4

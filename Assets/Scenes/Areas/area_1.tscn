@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://br4d2h0ephqnd"]
+[gd_scene load_steps=11 format=3 uid="uid://br4d2h0ephqnd"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Areas/area_1.gd" id="1_xnaxs"]
 [ext_resource type="PackedScene" uid="uid://dbuangc3l4mds" path="res://Assets/Scenes/background.tscn" id="2_n6c5b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cpxkshco42fvl" path="res://Assets/Scenes/tile_map.tscn" id="3_m1phx"]
 [ext_resource type="PackedScene" uid="uid://b7b4ekkdrmeo0" path="res://Assets/Scenes/Areas/button.tscn" id="3_ylinh"]
 [ext_resource type="PackedScene" uid="uid://b7wf814cvackh" path="res://Assets/Scenes/Areas/cube.tscn" id="4_tfc4c"]
+[ext_resource type="PackedScene" uid="uid://b7ny5hwtjorxi" path="res://Assets/Scenes/portal_gun.tscn" id="5_wv2ij"]
 [ext_resource type="PackedScene" uid="uid://diitpiy4h1v01" path="res://Assets/Scenes/blue_portal.tscn" id="7_fxyrc"]
 [ext_resource type="Script" path="res://Assets/Scenes/Areas/portal.gd" id="8_0ufq0"]
 [ext_resource type="PackedScene" uid="uid://v0kgvtjt0rjv" path="res://Assets/Scenes/Areas/orange_portal.tscn" id="8_sbmt3"]
@@ -22,8 +23,10 @@ position = Vector2(0, 2)
 [node name="Cyborg" parent="." instance=ExtResource("2_o8yj0")]
 position = Vector2(-391, 234)
 
+[node name="PortalGun" parent="Cyborg" instance=ExtResource("5_wv2ij")]
+
 [node name="Cube" parent="." instance=ExtResource("4_tfc4c")]
-position = Vector2(-265, 113)
+position = Vector2(16, 140)
 
 [node name="button2" parent="." instance=ExtResource("3_ylinh")]
 position = Vector2(-263, 256)
@@ -32,13 +35,27 @@ position = Vector2(-263, 256)
 position = Vector2(-424, -128)
 
 [node name="Orange_Portal" parent="." groups=["orange_portal"] instance=ExtResource("8_sbmt3")]
-position = Vector2(-306, 151)
+position = Vector2(-66, -142)
 script = ExtResource("8_0ufq0")
 exit_offset = 32.0
 min_exit_speed = 200.0
 
 [node name="Blue_Portal" parent="." groups=["blue_portal"] instance=ExtResource("7_fxyrc")]
-position = Vector2(-476, 188)
+position = Vector2(-199, -145)
 script = ExtResource("8_0ufq0")
 exit_offset = 32.0
 min_exit_speed = 200.0
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -459.0
+offset_top = 161.0
+offset_right = 1822.0
+offset_bottom = 743.0
+scale = Vector2(0.09, 0.09)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 126
+text = "Vous avez fini le jeu solo.
+Vous voilà dans la sandbox."

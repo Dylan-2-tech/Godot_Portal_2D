@@ -128,7 +128,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
-position = Vector2(9, -7)
+position = Vector2(9, -6)
 texture = ExtResource("3_bky3w")
 region_enabled = true
 region_rect = Rect2(0, 336, 48, 48)

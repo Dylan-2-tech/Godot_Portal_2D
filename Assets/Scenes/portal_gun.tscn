@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ny5hwtjorxi"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/Areas/portal_gun.gd" id="1_2cw8y"]
+[ext_resource type="Texture2D" uid="uid://dvl48lrxr2tan" path="res://Assets/Sprites/Map/Tiles/gun.png" id="2_42dym"]
+
+[node name="PortalGun" type="Node2D"]
+position = Vector2(-4, 1)
+script = ExtResource("1_2cw8y")
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(-6, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+position = Vector2(2.37499, 1.81249)
+scale = Vector2(0.00583333, 0.00850258)
+texture = ExtResource("2_42dym")
+
+[node name="Muzzle" type="Marker2D" parent="Pivot"]
+position = Vector2(4, 0)

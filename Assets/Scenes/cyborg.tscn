@@ -1,17 +1,107 @@
-[gd_scene load_steps=8 format=3 uid="uid://umoorii1s2jt"]
+[gd_scene load_steps=11 format=3 uid="uid://umoorii1s2jt"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/cyborg.gd" id="1_nadm1"]
 [ext_resource type="Texture2D" uid="uid://tyg5v1pirqyn" path="res://Assets/Sprites/Characters/Cyborg.png" id="1_qlswd"]
 [ext_resource type="Script" path="res://Assets/Scripts/player_animator.gd" id="2_kyf4t"]
-[ext_resource type="Script" path="res://Assets/Scenes/Areas/portal_gun.gd" id="4_y1eie"]
-[ext_resource type="Texture2D" uid="uid://dvl48lrxr2tan" path="res://Assets/Sprites/Map/Tiles/gun.png" id="5_6h81j"]
-[ext_resource type="PackedScene" uid="uid://c7bpfhexbt64b" path="res://Assets/Scenes/Areas/level_1.tscn" id="6_wlfpl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qub36"]
 radius = 7.0
 height = 34.0
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[sub_resource type="Animation" id="Animation_65tq5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 336, 48, 48)]
+}
+
+[sub_resource type="Animation" id="Animation_p3ogk"]
+resource_name = "fall"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(96, 384, 48, 48), Rect2(144, 384, 48, 48)]
+}
+
+[sub_resource type="Animation" id="Animation_cc21q"]
+resource_name = "Idle"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 336, 48, 48), Rect2(48, 336, 48, 48), Rect2(96, 336, 48, 48), Rect2(144, 336, 48, 48)]
+}
+
+[sub_resource type="Animation" id="Animation_20pyh"]
+resource_name = "jump"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 384, 48, 48), Rect2(48, 384, 48, 48)]
+}
+
+[sub_resource type="Animation" id="Animation_a5k7r"]
+resource_name = "move"
+length = 1.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 480, 48, 48), Rect2(48, 480, 48, 48), Rect2(96, 480, 48, 48), Rect2(144, 480, 48, 48), Rect2(192, 480, 48, 48), Rect2(240, 480, 48, 48)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vanul"]
+_data = {
+"RESET": SubResource("Animation_65tq5"),
+"fall": SubResource("Animation_p3ogk"),
+"idle": SubResource("Animation_cc21q"),
+"jump": SubResource("Animation_20pyh"),
+"move": SubResource("Animation_a5k7r")
+}
+
+[node name="Player2" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_nadm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,7 +110,6 @@ shape = SubResource("CapsuleShape2D_qub36")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -80)
 zoom = Vector2(2, 2)
-position_smoothing_enabled = true
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "sprite", "animation_player")]
 script = ExtResource("2_kyf4t")
@@ -31,26 +120,12 @@ animation_player = NodePath("AnimationPlayer")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator"]
 autoplay = "idle"
 speed_scale = 1.75
+libraries = {
+"": SubResource("AnimationLibrary_vanul")
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
 position = Vector2(9, -7)
 texture = ExtResource("1_qlswd")
 region_enabled = true
 region_rect = Rect2(0, 336, 48, 48)
-
-[node name="PortalGun" type="Node2D" parent="."]
-position = Vector2(-4, 1)
-script = ExtResource("4_y1eie")
-
-[node name="Pivot" type="Node2D" parent="PortalGun"]
-position = Vector2(-6, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="PortalGun/Pivot"]
-position = Vector2(2.37499, 1.81249)
-scale = Vector2(0.00583333, 0.00850258)
-texture = ExtResource("5_6h81j")
-
-[node name="Muzzle" type="Marker2D" parent="PortalGun/Pivot"]
-position = Vector2(4, 0)
-
-[node name="Level_1" parent="PortalGun" instance=ExtResource("6_wlfpl")]
